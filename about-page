@@ -41,9 +41,9 @@ index 5a59d99..da1b5b0 100755
    <head>
      <title>A whale of a greeting</title>
 
-commit 1814f20489e2365c92b0b95db277cc2e5c58c30f
-Author: Kamrul Shaker <kamrul.shaker@bongobd.com>
-Date:   Tue Mar 12 13:03:04 2024 -0500
+commit  c2002b589b4fe0fd568fed55004d3a754c897a43  (HEAD -> main, origin/main)
+Author: BansariPatel <48115163+bansupatel@users.noreply.github.com>
+Date:   Mon Mar 11 15:23:41 2024 -0500
 
     Add an image
 
@@ -55,17 +55,15 @@ index 7ce943b..5a59d99 100755
    <body>
      <h1>hello, world</h1>
      <p>Call me Ishmael.</p>
-+    <img src="images/breaching_whale.jpg">
++    <img src="images/nature.jpg">
    </body>
  </html>
 
-commit aefc9b244454f9a795973f02a0cab99355f37842
-Author: Kamrul Shaker <kamrul.shaker@bongobd.com>
-Date:   Tue Mar 12 13:02:04 2024 -0500
+commit  c2002b589b4fe0fd568fed55004d3a754c897a43  (HEAD -> main, origin/main)
+Author: BansariPatel <48115163+bansupatel@users.noreply.github.com>
+Date:   Mon Mar 11 15:23:41 2024 -0500
 
     Added index.html and images
-
-:
 
 
 
