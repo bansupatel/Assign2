@@ -80,6 +80,169 @@ $ git branch
   test-branch
 
 
+3.4.1
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ echo >> about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ vi about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   about.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git diff
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+diff --git a/about.html b/about.html
+index 53a39a7..8b13789 100644
+--- a/about.html
++++ b/about.html
+@@ -1,12 +1 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-<title>A nature of a greeting</title>
+-</head>
+-<body>
+-<h1>hello, world</h1>
+-<a href="about.html">About this project</a>
+-<p>Call me Ishmael.</p>
+-<img src="images/pqr.jpg">
+-</body>
+-</html>
++
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout -f
+Your branch is up to date with 'origin/main'.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git diff
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>A nature of a greeting</title>
+</head>
+<body>
+<h1>hello, world</h1>
+<a href="about.html">About this project</a>
+<p>Call me Ishmael.</p>
+<img src="images/pqr.jpg">
+</body>
+</html>
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout -b test-branch
+fatal: a branch named 'test-branch' already exists
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout -b test -branch
+Switched to a new branch 'ranch'
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (ranch)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (ranch)
+$ git commit -am "Oops"
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+[ranch 4882066] Oops
+ 1 file changed, 1 insertion(+), 12 deletions(-)
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (ranch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git branch
+* main
+  ranch
+  test-branch
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ ls
+about-page  about.html  gitignore  images/  index.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>A nature of a greeting</title>
+</head>
+<body>
+<h1>hello, world</h1>
+<a href="about.html">About this project</a>
+<p>Call me Ishmael.</p>
+<img src="images/pqr.jpg">
+</body>
+</html>
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git diff
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+diff --git a/about.html b/about.html
+index 53a39a7..8b13789 100644
+--- a/about.html
++++ b/about.html
+@@ -1,12 +1 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-<title>A nature of a greeting</title>
+-</head>
+-<body>
+-<h1>hello, world</h1>
+-<a href="about.html">About this project</a>
+-<p>Call me Ishmael.</p>
+-<img src="images/pqr.jpg">
+-</body>
+-</html>
++
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout --force
+Your branch is up to date with 'origin/main'.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>A nature of a greeting</title>
+</head>
+<body>
+<h1>hello, world</h1>
+<a href="about.html">About this project</a>
+<p>Call me Ishmael.</p>
+<img src="images/pqr.jpg">
+</body>
+</html>
+
 
 
 
