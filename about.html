@@ -1,3 +1,251 @@
+3.3.2
+
+1. Use the command git branch -d about-page to delete the topic branch. Confirm by running git branch that only the main branch is left.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git branch -d about-page
+Deleted branch about-page (was 502ef75).
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git branch
+* main
+
+2. InListing3.3,weusedgitcheckout-btocreateabranchandcheck
+it out at the same time, but it’s also possible to break this into two steps.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git branch test-branch
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git branch
+* main
+  test-branch
+
+3. Check out test-branch and use touch to add a file with a name of your choice, then add and commit it to the repository.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout test-branch
+Switched to branch 'test-branch'
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (test-branch)
+$ touch practise
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (test-branch)
+$ git add -A
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (test-branch)
+$ git commit -am "Added my file..."
+[test-branch f0f2c40] Added my file...
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 practise
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (test-branch)
+$ git push
+fatal: The current branch test-branch has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin test-branch
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (test-branch)
+$ git push --set-upstream origin test-branch
+Enumerating objects: 36, done.
+Counting objects: 100% (36/36), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (33/33), done.
+Writing objects: 100% (36/36), 81.07 KiB | 2.70 MiB/s, done.
+Total 36 (delta 11), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (11/11), done.
+remote:
+remote: Create a pull request for 'test-branch' on GitHub by visiting:
+remote:      https://github.com/bansupatel/Assign2/pull/new/test-branch
+remote:
+To https://github.com/bansupatel/Assign2.git
+ * [new branch]      test-branch -> test-branch
+branch 'test-branch' set up to track 'origin/test-branch'.
+
+4. Check out the main branch and try deleting the test branch using git branch -d to confirm that it doesn’t work. The reason is that, in con­ trast to the about-page branch, the test branch hasn’t been merged into main, and by design -d doesn’t work in this case. Because we don’t actually want its changes, delete the test by using the related -D option, which deletes the branch in question even if its changes are unmerged.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (test-branch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git branch
+* main
+  test-branch
+
+
+3.4.1
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ echo >> about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ vi about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   about.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git diff
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+diff --git a/about.html b/about.html
+index 53a39a7..8b13789 100644
+--- a/about.html
++++ b/about.html
+@@ -1,12 +1 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-<title>A nature of a greeting</title>
+-</head>
+-<body>
+-<h1>hello, world</h1>
+-<a href="about.html">About this project</a>
+-<p>Call me Ishmael.</p>
+-<img src="images/pqr.jpg">
+-</body>
+-</html>
++
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout -f
+Your branch is up to date with 'origin/main'.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git diff
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>A nature of a greeting</title>
+</head>
+<body>
+<h1>hello, world</h1>
+<a href="about.html">About this project</a>
+<p>Call me Ishmael.</p>
+<img src="images/pqr.jpg">
+</body>
+</html>
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout -b test-branch
+fatal: a branch named 'test-branch' already exists
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout -b test -branch
+Switched to a new branch 'ranch'
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (ranch)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (ranch)
+$ git commit -am "Oops"
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+[ranch 4882066] Oops
+ 1 file changed, 1 insertion(+), 12 deletions(-)
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (ranch)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git branch
+* main
+  ranch
+  test-branch
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ ls
+about-page  about.html  gitignore  images/  index.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>A nature of a greeting</title>
+</head>
+<body>
+<h1>hello, world</h1>
+<a href="about.html">About this project</a>
+<p>Call me Ishmael.</p>
+<img src="images/pqr.jpg">
+</body>
+</html>
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ echo > about.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git diff
+warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+diff --git a/about.html b/about.html
+index 53a39a7..8b13789 100644
+--- a/about.html
++++ b/about.html
+@@ -1,12 +1 @@
+-<!DOCTYPE html>
+-<html>
+-<head>
+-<title>A nature of a greeting</title>
+-</head>
+-<body>
+-<h1>hello, world</h1>
+-<a href="about.html">About this project</a>
+-<p>Call me Ishmael.</p>
+-<img src="images/pqr.jpg">
+-</body>
+-</html>
++
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git checkout --force
+Your branch is up to date with 'origin/main'.
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ cat about.html
+<!DOCTYPE html>
+<html>
+<head>
+<title>A nature of a greeting</title>
+</head>
+<body>
+<h1>hello, world</h1>
+<a href="about.html">About this project</a>
+<p>Call me Ishmael.</p>
+<img src="images/pqr.jpg">
+</body>
+</html>
+
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
