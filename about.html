@@ -109,7 +109,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
 $ git diff
-warning: in the working copy of 'about.html', LF will be replaced by CRLF the next time Git touches it
+
 diff --git a/about.html b/about.html
 index 53a39a7..8b13789 100644
 --- a/about.html
@@ -121,12 +121,7 @@ index 53a39a7..8b13789 100644
 -<title>A nature of a greeting</title>
 -</head>
 -<body>
--<h1>hello, world</h1>
--<a href="about.html">About this project</a>
--<p>Call me Ishmael.</p>
--<img src="images/pqr.jpg">
--</body>
--</html>
+
 +
 
 Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
@@ -244,8 +239,21 @@ $ cat about.html
 </html>
 
 
+4.1.1
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ vi index.html
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git add -A
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git commit -am "Added attributaion page for image"
+[main 34e137e] Added attributaion page for image
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head>
@@ -261,3 +269,47 @@ $ cat about.html
 <img src="images/pqr.jpg">
 </body>
 </html>
+=======
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git pull
+remote: Enumerating objects: 27, done.
+remote: Counting objects: 100% (27/27), done.
+remote: Compressing objects: 100% (24/24), done.
+remote: Total 24 (delta 13), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (24/24), 10.15 KiB | 4.00 KiB/s, done.
+From https://github.com/bansupatel/Assign2
+   c2002b5..8f708d1  main       -> origin/main
+Auto-merging about.html
+Merge made by the 'ort' strategy.
+ about-page |  99 ++++++++++++++++++++++++
+ about.html | 248 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 347 insertions(+)
+
+Patel@DESKTOP-17DSVEV MINGW64 ~/OneDrive/Desktop/Assign2 (main)
+$ git log -p
+commit 649f4fc0b38b166bd83028f5d9f2c91a8d30101f (HEAD -> main)
+Merge: 34e137e 8f708d1
+Author: Bansari Patel <bansaripatel25897@gmail.com>
+Date:   Wed Mar 13 13:51:04 2024 -0500
+
+    Merge branch 'main' of https://github.com/bansupatel/Assign2
+
+commit 34e137e7736fe873c842956d0ab8ef5d58a78530
+Author: Bansari Patel <bansaripatel25897@gmail.com>
+Date:   Wed Mar 13 13:49:39 2024 -0500
+
+    Added attributaion page for image
+
+diff --git a/about.html b/about.html
+index 53a39a7..f08a743 100644
+--- a/about.html
++++ b/about.html
+@@ -6,7 +6,10 @@
+ <body>
+ <h1>hello, world</h1>
+ <a href="about.html">About this project</a>
+-<p>Call me Ishmael.</p>
++<p>Call me Ishmael.
++<em>Learn EnoughTM Git to Be Dangerous</em>.
+++tutorial <a href="https://www.learnenough.com/git-tutorial">...</a> <em>Learn En
+>>>>>>> 774343d98d3cdf0b778763cc8e053357215a746a
